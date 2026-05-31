@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Task Manager</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div class="tm-app" id="tmApp">
+
+    <div class="screen active" id="screenLogin">
+      <div class="auth-bg">
+        <div class="auth-card">
+          <div class="auth-logo">
+            <div class="auth-logo-dot">
+              <svg viewBox="0 0 20 20"><path d="M3 5h14v2H3zm0 4h14v2H3zm0 4h8v2H3z"/></svg>
+            </div>
+            <span>Task Manager</span>
+          </div>
+          <div class="auth-title">Welcome Back!</div>
+          <div class="auth-subtitle">Login to your account</div>
+          <input class="tm-input" type="email" placeholder="Email Address" id="loginEmail"/>
+          <input class="tm-input" type="password" placeholder="Password" id="loginPass"/>
+          <div class="remember-row">
+            <input type="checkbox" id="rememberMe"/>
+            <label for="rememberMe">Remember me</label>
+          </div>
+          <button class="tm-btn" onclick="showScreen('screenDash')">Login</button>
+          <div class="auth-footer">Don't have an account? <button class="tm-link" onclick="showScreen('screenReg')">Register</button></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="screen" id="screenReg">
+      <div class="auth-bg">
+        <div class="auth-card">
+          <div class="auth-logo">
+            <div class="auth-logo-dot">
+              <svg viewBox="0 0 20 20"><path d="M3 5h14v2H3zm0 4h14v2H3zm0 4h8v2H3z"/></svg>
+            </div>
+            <span>Task Manager</span>
+          </div>
+          <div class="auth-title">Create Account</div>
+          <div class="auth-subtitle">Join us to start managing your tasks</div>
+          <input class="tm-input" type="text" placeholder="Full Name"/>
+          <input class="tm-input" type="email" placeholder="Email Address"/>
+          <input class="tm-input" type="password" placeholder="Password"/>
+          <input class="tm-input" type="password" placeholder="Confirm Password"/>
+          <button class="tm-btn" onclick="showScreen('screenDash')">Register</button>
+          <div class="auth-footer">Already have an account? <button class="tm-link" onclick="showScreen('screenLogin')">Login</button></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="screen" id="screenDash">
+      <div class="dash-wrap">
+        <nav class="dash-navbar">
+          <div class="dash-brand">
+            <div class="dash-brand-icon">
+              <svg viewBox="0 0 20 20"><path d="M3 5h14v2H3zm0 4h14v2H3zm0 4h8v2H3z"/></svg>
+            </div>
+            Task Manager
+          </div>
+          <div class="dash-user">
+            <div class="dash-avatar">GM</div>
+            <span class="dash-username">Gayathri Muddapati</span>
+            <button class="tm-link" onclick="showScreen('screenLogin')" style="font-size:12px;color:#6b7a8d;margin-left:6px">Logout</button>
+          </div>
+        </nav>
+        <div class="dash-add-bar">
+          <input class="dash-add-input" type="text" placeholder="Add a new task title..." id="newTaskTitle"/>
+          <button class="dash-add-btn" onclick="addTask()">+ Add Task</button>
+        </div>
+        <div class="kanban" id="kanbanBoard"></div>
+      </div>
+    </div>
+
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
